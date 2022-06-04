@@ -1,0 +1,2 @@
+#+TITLE: Edu's Nix config files
+#+AUTHOR: Edu Renesto

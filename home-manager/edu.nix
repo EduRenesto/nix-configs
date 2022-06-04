@@ -42,7 +42,7 @@
 
     git = {
       enable = true;
-      userEmail = "eduardo.renesto@proton.me";
+      userEmail = "edure95@gmail.com";
       userName = "Edu Renesto";
     };
 
@@ -60,6 +60,8 @@
     picom = {
       enable = true;
     };
+
+    flameshot.enable = true;
   };
 
   xsession.windowManager.xmonad = {
@@ -67,6 +69,12 @@
     enableContribAndExtras = true;
     config = ../dots/xmonad/xmonad.hs;
   };
+
+  xsession.initExtra = ''
+    ${pkgs.xmodmap}/bin/xmodmap ${config.xdg.configHome}/xmodmap/xmodmap
+  '';
+
+  xdg.configFile."xmodmap/xmodmap".source = ../dots/xmodmap/xmodmap;
 
   systemd.user.startServices = "sd-switch";
 }
