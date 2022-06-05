@@ -71,5 +71,5 @@ myXmobarPP = def
 main = xmonad
      . ewmhFullscreen
      . ewmh 
---     . withEasySB (statusBarProp "xmobar ~/.config/xmobar/xmobarrc" (pure myXmobarPP)) defToggleStrutsKey
+     . withEasySB (statusBarProp "xmobar ~/.config/xmobar/xmobarrc" (pure myXmobarPP)) defToggleStrutsKey
      $ myConfig `additionalKeys` myKeys

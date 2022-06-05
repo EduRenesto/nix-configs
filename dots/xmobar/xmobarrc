@@ -1,0 +1,19 @@
+Config {
+      font =        "xft:Iosevka:size=12:antialias=true"
+    , position =    TopH 30
+    , bgColor =     "#282a36"
+    , fgColor =     "#6272a4"
+
+    , template = " %XMonadLog% }{ %SBGR% | %cpu% | %memory% | %date% | %battery% "
+
+    , commands =
+
+        [ Run Battery ["--template", "<fc=#bd93f9,#282a36><left>%</fc>"] 60
+        , Run Date      "<fc=#bd93f9,#282a36>%F %H:%M</fc>" "date" 10
+        , Run Memory ["--template", "<fc=#8be9fd,#282a36>RAM: <usedratio>%</fc>", "-m", "3"] 10
+        , Run Cpu ["--template", "<fc=#50fa7b,#282a36>CPU: <total>%</fc>", "-m", "3"] 10
+--        , Run Volume "default" "Master" ["--template", "<fc=#ff79c6,#282a36>Vol: <volume>%</fc>"] 1
+        , Run Weather "SBGR" ["--template", "<fc=#f1fa8c,#282a36>Outside: <tempC> C</fc>"] 36000
+        , Run XMonadLog
+        ]
+}

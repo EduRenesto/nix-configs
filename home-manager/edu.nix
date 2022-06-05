@@ -60,6 +60,8 @@
     };
 
     password-store.enable = true;
+
+    xmobar.enable = true;
   };
 
   services = {
@@ -88,6 +90,7 @@
   '';
 
   xdg.configFile."xmodmap/xmodmap".source = ../dots/xmodmap/xmodmap;
+  xdg.configFile."xmobar/xmobarrc".source = ../dots/xmobar/xmobarrc;
 
   systemd.user.startServices = "sd-switch";
 }
