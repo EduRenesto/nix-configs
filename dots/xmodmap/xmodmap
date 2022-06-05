@@ -1,7 +1,7 @@
 clear lock
 
 !keycode 66 = Escape
-!keycode 66 = Super_L
+keycode 66 = Super_L
 !keycode 9  = Caps_Lock
 !keycode 9 = dead_grave dead_tilde
 keycode 9 = Super_L
