@@ -3,6 +3,7 @@
     xorg.xmodmap
     iosevka-bin
     manrope
+    xclip
   ];
 
   home.sessionVariables = {
