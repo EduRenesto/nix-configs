@@ -51,7 +51,6 @@
 
   services.xserver = {
     enable = true;
-    desktopManager.gnome.enable = true;
     windowManager.xmonad.enable = true;
     layout = "dvorak";
 

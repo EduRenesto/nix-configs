@@ -5,6 +5,7 @@
     iosevka-bin
     manrope
     xclip
+    pavucontrol
   ];
 
   home.sessionVariables = {
