@@ -23,6 +23,19 @@
     firewall.enable = true;
 
     networkmanager.enable = true;
+
+    wg-quick.interfaces.wg0 = {
+      address = [ "10.0.0.4/24" ];
+      privateKeyFile = "/root/wg-keys/alderaan-private-key";
+
+      peers = [
+        {
+          publicKey = "gNV5dHFj2p1/eCsTFRSYg52XSHF/+UnJX8vgdm6jhgA=";
+          allowedIPs = [ "10.0.0.1/32" ];
+          endpoint = "rouxinolio.crabdance.com:51820";
+        }
+      ];
+    };
   };
 
   time.timeZone = "America/Sao_Paulo";
