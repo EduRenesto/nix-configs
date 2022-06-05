@@ -1,4 +1,9 @@
 { inputs, lib, config, pkgs, ... }: {
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "spotify"
+    "spotify-unwrapped"
+  ];
+
   home.packages = with pkgs; [
     xorg.xmodmap
     light
@@ -12,6 +17,7 @@
     yabridge
     yabridgectl
     ardour
+    spotify
   ];
 
   home.sessionVariables = {

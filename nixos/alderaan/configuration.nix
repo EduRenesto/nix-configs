@@ -10,6 +10,10 @@
     registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
   };
 
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "spotify"
+  ];
+
   boot.loader = {
     systemd-boot.enable = true;
     efi.canTouchEfiVariables = true;
