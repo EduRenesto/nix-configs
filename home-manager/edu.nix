@@ -1,6 +1,7 @@
 { inputs, lib, config, pkgs, ... }: {
   home.packages = with pkgs; [
     xorg.xmodmap
+    light
     iosevka-bin
     manrope
     xclip
