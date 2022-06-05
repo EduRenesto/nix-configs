@@ -6,6 +6,7 @@
     manrope
     xclip
     pavucontrol
+    xcape
   ];
 
   home.sessionVariables = {
@@ -66,13 +67,6 @@
   };
 
   services = {
-    xcape = {
-      enable = true;
-      mapExpression = {
-        Super_L="Escape";
-      };
-    };
-
     picom = {
       enable = true;
     };
@@ -88,6 +82,7 @@
 
   xsession.initExtra = ''
     ${pkgs.xmodmap}/bin/xmodmap ${config.xdg.configHome}/xmodmap/xmodmap
+    ${pkgs.xcape}/bin/xcape -e "Super_L=Escape"
   '';
 
   xdg.configFile."xmodmap/xmodmap".source = ../dots/xmodmap/xmodmap;
