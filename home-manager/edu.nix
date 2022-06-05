@@ -8,6 +8,10 @@
     xcape
     pavucontrol
     pamixer
+    wineWowPackages.staging
+    yabridge
+    yabridgectl
+    ardour
   ];
 
   home.sessionVariables = {
