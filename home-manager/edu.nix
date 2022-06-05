@@ -39,7 +39,7 @@
       settings = {
         font = {
           normal.family = "Iosevka";
-          size = 9;
+          size = 12;
         };
       };
     };
