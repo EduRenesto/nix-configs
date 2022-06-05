@@ -2,7 +2,12 @@
   home.packages = with pkgs; [
     xorg.xmodmap
     iosevka-bin
+    manrope
   ];
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+  };
 
   programs = {
     home-manager.enable = true;
@@ -29,6 +34,12 @@
 
     alacritty = {
       enable = true;
+      settings = {
+        font = {
+          normal.family = "Iosevka";
+          size = 9;
+        };
+      };
     };
 
     rofi.enable = true;

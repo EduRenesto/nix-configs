@@ -1,22 +1,9 @@
 clear lock
 
 !keycode 66 = Escape
-keycode 66 = Super_L
+!keycode 66 = Super_L
 !keycode 9  = Caps_Lock
-keycode 9 = dead_grave dead_tilde
+!keycode 9 = dead_grave dead_tilde
+keycode 9 = Super_L
 keycode 49 = Caps_Lock
-
-keycode 232 = F1
-keycode 233 = F2
-keycode 128 = F3
-keycode 212 = F4
-keycode 237 = F5
-keycode 238 = F6
-keycode 173 = F7
-keycode 172 = F8
-keycode 171 = F9
-keycode 121 = F10
-keycode 122 = F11
-keycode 123 = F12
-
 keycode 666 = Escape
