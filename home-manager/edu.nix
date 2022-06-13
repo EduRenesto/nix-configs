@@ -1,8 +1,10 @@
-{ inputs, lib, config, pkgs, ... }: {
+{ inputs, lib, config, pkgs, overlays, ... }: {
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "spotify"
     "spotify-unwrapped"
   ];
+
+  nixpkgs.overlays = overlays;
 
   home.packages = with pkgs; [
     xorg.xmodmap
@@ -99,6 +101,13 @@
 
   xdg.configFile."xmodmap/xmodmap".source = ../dots/xmodmap/xmodmap;
   xdg.configFile."xmobar/xmobarrc".source = ../dots/xmobar/xmobarrc;
+  xdg.configFile."nvim" = {
+    recursive = true;
+    source = ../dots/neovim;
+    onChange = ''
+      rm -rf ${config.xdg.configHome}/nvim/lua/*
+    '';
+  };
 
   systemd.user.startServices = "sd-switch";
 }

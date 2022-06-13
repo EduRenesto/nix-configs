@@ -1,6 +1,8 @@
-{ inputs, lib, config, pkgs, ...}: {
+{ inputs, lib, config, pkgs, overlays, ...}: {
+  nixpkgs.overlays = overlays;
+
   environment.systemPackages = with pkgs; [
-    neovim
+    neovim-nightly
     wget
     bottom
     bat
