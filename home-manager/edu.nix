@@ -18,6 +18,7 @@
     yabridgectl
     ardour
     spotify
+    stack
   ];
 
   home.sessionVariables = {
