@@ -21,6 +21,7 @@
     ardour
     spotify
     stack
+    haskell-language-server
   ];
 
   home.sessionVariables = {
