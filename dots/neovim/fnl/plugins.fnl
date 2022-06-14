@@ -2,7 +2,10 @@
   {autoload {nvim aniseed.nvim
              a aniseed.core
              packer packer
-             lualine lualine}})
+             lualine lualine
+             lsp lspconfig
+             coq coq
+             }})
 
 (defn- safe-require-plugin-config [name]
   (let [(ok? val-or-err) (pcall require (.. :config.plugin. name))]
@@ -28,8 +31,16 @@
   :Olical/aniseed {}
   :catppuccin/nvim {}
   :nvim-lualine/lualine.nvim {}
+
+  :nvim-lua/plenary.nvim {}
+  :nvim-telescope/telescope.nvim {}
+
+  :neovim/nvim-lspconfig {}
+  :ms-jpq/coq_nvim {:branch :coq}
   )
 
 (lualine.setup)
 
 (vim.cmd "colorscheme catppuccin")
+
+(lsp.hls.setup (coq.lsp_ensure_capabilities {}))

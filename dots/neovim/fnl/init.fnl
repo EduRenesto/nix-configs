@@ -15,3 +15,4 @@
     (core.assoc nvim.o option value)))
 
 (require :plugins)
+(require :maps)
