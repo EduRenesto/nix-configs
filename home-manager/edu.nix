@@ -22,6 +22,7 @@
     spotify
     stack
     haskell-language-server
+    fvwm
   ];
 
   home.sessionVariables = {
