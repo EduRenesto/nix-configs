@@ -56,6 +56,7 @@
   services.xserver = {
     enable = true;
     windowManager.xmonad.enable = true;
+    windowManager.openbox.enable = true;
     layout = "dvorak";
 
     libinput = {

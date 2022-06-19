@@ -22,7 +22,6 @@
     spotify
     stack
     haskell-language-server
-    fvwm
   ];
 
   home.sessionVariables = {
@@ -110,6 +109,12 @@
       rm -rf ${config.xdg.configHome}/nvim/lua/*
     '';
   };
+  xdg.configFile."openbox" = {
+    recursive = true;
+    source = ../dots/openbox;
+  };
 
   systemd.user.startServices = "sd-switch";
+
+  fonts.fontconfig.enable = true;
 }
