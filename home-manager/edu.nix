@@ -2,6 +2,7 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "spotify"
     "spotify-unwrapped"
+    "unityhub"
   ];
 
   nixpkgs.overlays = overlays;
@@ -22,6 +23,7 @@
     spotify
     stack
     haskell-language-server
+    unityhub
   ];
 
   home.sessionVariables = {
