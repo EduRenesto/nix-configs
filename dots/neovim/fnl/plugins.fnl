@@ -31,6 +31,7 @@
   :Olical/aniseed {}
   :catppuccin/nvim {}
   :nvim-lualine/lualine.nvim {}
+  :shaunsingh/nord.nvim {}
 
   :nvim-lua/plenary.nvim {}
   :nvim-telescope/telescope.nvim {}
@@ -39,8 +40,10 @@
   :ms-jpq/coq_nvim {:branch :coq}
   )
 
-(lualine.setup)
+(lualine.setup {:options {
+                         :theme "nord"
+                         }})
 
-(vim.cmd "colorscheme catppuccin")
+(vim.cmd "colorscheme nord")
 
 (lsp.hls.setup (coq.lsp_ensure_capabilities {}))
