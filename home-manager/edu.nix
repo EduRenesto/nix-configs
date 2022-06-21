@@ -24,6 +24,7 @@
     stack
     haskell-language-server
     unityhub
+    feh
   ];
 
   home.sessionVariables = {
@@ -116,9 +117,14 @@
     config = ../dots/xmonad/xmonad.hs;
   };
 
+  # TODO(edu): I need to find a cool way to store my wallpapers.
+  # Maybe I should create a Nix package containing them, and then
+  # use it to reference the wallpaper path, instead of relying ad hoc
+  # on the path...
   xsession.initExtra = ''
     ${pkgs.xmodmap}/bin/xmodmap ${config.xdg.configHome}/xmodmap/xmodmap
     ${pkgs.xcape}/bin/xcape -e "Super_L=Escape"
+    ${pkgs.feh}/bin/feh --bg-scale $HOME/wallpapers/pink-circuit.jpg
   '';
 
   xdg.configFile."xmodmap/xmodmap".source = ../dots/xmodmap/xmodmap;
