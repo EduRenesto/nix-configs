@@ -106,6 +106,9 @@
       fadeDelta = 5;
       shadow = true;
       vSync = true;
+      extraOptions = ''
+        blur-method = "dual_kawase";
+      '';
     };
 
     flameshot.enable = true;
