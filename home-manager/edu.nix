@@ -86,6 +86,12 @@
   services = {
     picom = {
       enable = true;
+      experimentalBackends = true;
+      blur = true;
+      fade = true;
+      fadeDelta = 5;
+      shadow = true;
+      vSync = true;
     };
 
     flameshot.enable = true;
