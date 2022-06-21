@@ -60,6 +60,19 @@
           normal.family = "Iosevka";
           size = 12;
         };
+
+        colors = with import ../colors/alacritty.nix {}; {
+          inherit nord;
+        };
+
+        window = {
+          padding = {
+            x = 5;
+            y = 5;
+          };
+
+          opacity = 0.8;
+        };
       };
     };
 
