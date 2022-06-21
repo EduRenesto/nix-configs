@@ -6,6 +6,6 @@
 
 (map-key "<leader>," ":Telescope buffers<CR>")
 (map-key "<leader>." ":Telescope find_files<CR>")
-(map-key "<leader>ws" ":vsplit<CR>")
-(map-key "<leader>wv" ":split<CR>")
+(map-key "<leader>wv" ":vsplit<CR>")
+(map-key "<leader>ws" ":split<CR>")
 (map-key ";" ":")

@@ -25,6 +25,11 @@
     haskell-language-server
     unityhub
     feh
+    omnisharp-roslyn
+    dotnet-sdk
+    mono
+    python310
+    python310Packages.ipython
   ];
 
   home.sessionVariables = {
@@ -136,9 +141,17 @@
     recursive = true;
     source = ../dots/neovim;
     onChange = ''
+      tmp=$(mktemp)
+      mv ${config.xdg.configHome}/nvim/lua/nixsupport.lua $tmp
       rm -rf ${config.xdg.configHome}/nvim/lua/*
+      mv $tmp ${config.xdg.configHome}/nvim/lua/nixsupport.lua
     '';
   };
+  xdg.configFile."nvim/lua/nixsupport.lua".text = ''
+    return {
+      omnisharp_path="${pkgs.omnisharp-roslyn}/bin/omnisharp",
+    }
+  '';
   xdg.configFile."openbox" = {
     recursive = true;
     source = ../dots/openbox;
