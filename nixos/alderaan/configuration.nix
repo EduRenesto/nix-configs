@@ -100,6 +100,11 @@
       pulse.enable = true;
       jack.enable = true;
     };
+
+    openssh = {
+      enable = false;
+      passwordAuthentication = true;
+    };
   };
 
   security.rtkit.enable = true;

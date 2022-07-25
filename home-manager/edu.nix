@@ -1,4 +1,6 @@
 { inputs, lib, config, pkgs, overlays, ... }: {
+  imports = [ inputs.nix-doom-emacs.hmModule ];
+
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "spotify"
     "spotify-unwrapped"
@@ -30,11 +32,16 @@
     mono
     python310
     python310Packages.ipython
+    unzip
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+  home.sessionPath = [
+    "$HOME/.local/bin"
+  ];
 
   programs = {
     home-manager.enable = true;
@@ -100,6 +107,15 @@
     password-store.enable = true;
 
     xmobar.enable = true;
+
+    doom-emacs = {
+      enable = true;
+      doomPrivateDir = ../dots/doom;
+      emacsPackagesOverlay = self: super: {
+        gitignore-mode = pkgs.emacsPackages.git-modes;
+        gitconfig-mode = pkgs.emacsPackages.git-modes;
+      };
+    };
   };
 
   services = {
@@ -117,6 +133,11 @@
     };
 
     flameshot.enable = true;
+
+    emacs = {
+      enable = true;
+      #package = config.programs.doom-emacs.package;
+    };
   };
 
   xsession.windowManager.xmonad = {

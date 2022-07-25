@@ -39,6 +39,7 @@
 
   :neovim/nvim-lspconfig {}
   :ms-jpq/coq_nvim {:branch :coq}
+  :ms-jpq/coq.thirdparty {:branch :3p}
   )
 
 (lualine.setup {:options {
