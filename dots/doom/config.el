@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
 (setq user-full-name "Eduardo Renesto Estanquiere"
-      user-mail-address "restanquiere@questrade.com")
+      user-mail-address "edure95@gmail.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
@@ -118,8 +118,8 @@
 
 ;(setq-default line-spacing 0.3)
 
-(setq doom-modeline-height 1)
-(set-face-attribute 'mode-line nil :family "SF Pro Display" :height 160)
-(set-face-attribute 'mode-line-inactive nil :family "SF Pro Display" :height 160)
+;(setq doom-modeline-height 1)
+;(set-face-attribute 'mode-line nil :family "SF Pro Display" :height 160)
+;(set-face-attribute 'mode-line-inactive nil :family "SF Pro Display" :height 160)
 
 (setq projectile-indexing-method 'hybrid)

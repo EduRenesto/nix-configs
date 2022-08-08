@@ -5,6 +5,7 @@
     "spotify"
     "spotify-unwrapped"
     "unityhub"
+    "vscode"
   ];
 
   nixpkgs.overlays = overlays;
@@ -27,12 +28,14 @@
     haskell-language-server
     unityhub
     feh
-    omnisharp-roslyn
-    dotnet-sdk
-    mono
+    # omnisharp-roslyn
+    # dotnet-sdk
+    #mono
     python310
     python310Packages.ipython
     unzip
+    vscode # ew
+    #msbuild
   ];
 
   home.sessionVariables = {
