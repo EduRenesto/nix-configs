@@ -7,3 +7,11 @@ keycode 66 = Super_L
 keycode 9 = Super_L
 keycode 49 = Caps_Lock
 keycode 666 = Escape
+
+keycode 31 = c C ccedilla
+keycode 38 = a A dead_tilde
+keycode 39 = o O dead_circumflex
+keycode 40 = e E dead_acute
+keycode 41 = u U dead_grave
+
+keycode 108 = Mode_switch

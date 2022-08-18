@@ -36,6 +36,11 @@
     unzip
     vscode # ew
     #msbuild
+
+    gnumake
+    texlive.combined.scheme-full
+    pandoc
+    zathura
   ];
 
   home.sessionVariables = {
