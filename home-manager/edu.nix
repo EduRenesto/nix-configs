@@ -4,8 +4,6 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "spotify"
     "spotify-unwrapped"
-    "unityhub"
-    "vscode"
   ];
 
   nixpkgs.overlays = overlays;
@@ -26,21 +24,16 @@
     spotify
     stack
     haskell-language-server
-    unityhub
     feh
-    # omnisharp-roslyn
-    # dotnet-sdk
-    #mono
     python310
     python310Packages.ipython
     unzip
-    vscode # ew
-    #msbuild
 
     gnumake
     texlive.combined.scheme-full
     pandoc
     zathura
+    inotify-tools
   ];
 
   home.sessionVariables = {
