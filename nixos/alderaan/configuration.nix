@@ -16,7 +16,13 @@
   ];
 
   boot.loader = {
-    systemd-boot.enable = true;
+    systemd-boot = {
+      enable = true;
+      extraEntries."opencore.conf" = ''
+        title OpenCore
+        efi /EFI/BOOT/OpenCore.efi
+      '';
+    };
     efi.canTouchEfiVariables = true;
     timeout = 1;
   };
