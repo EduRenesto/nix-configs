@@ -34,6 +34,8 @@
     pandoc
     zathura
     inotify-tools
+
+    docker-compose
   ];
 
   home.sessionVariables = {

@@ -116,5 +116,7 @@
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
 
+  virtualisation.docker.enable = true;
+
   system.stateVersion = "22.11";
 }
