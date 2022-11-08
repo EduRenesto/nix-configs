@@ -29,7 +29,7 @@
       inherit (home-manager.lib) homeManagerConfiguration;
 
       overlays = [
-      	inputs.neovim-nightly-overlay.overlay
+        inputs.neovim-nightly-overlay.overlay
         inputs.emacs-overlay.overlay
       ];
     in rec {
@@ -41,30 +41,28 @@
         };
       };
 
-      darwinConfigurations = {
-        "alderaan-mac" = darwinSystem {
-          system = "x86_64-darwin";
-          modules = [ ./nixos/alderaan-mac/configuration.nix ./nixos/common.nix ];
-          specialArgs = { inherit inputs; overlays = overlays; };
-        };
-      };
+      #darwinConfigurations = {
+      #  "alderaan-mac" = darwinSystem {
+      #    system = "x86_64-darwin";
+      #    modules = [ ./nixos/alderaan-mac/configuration.nix ./nixos/common.nix ];
+      #    specialArgs = { inherit inputs; overlays = overlays; };
+      #  };
+      #};
 
       homeConfigurations = {
-        "edu@alderaan" = homeManagerConfiguration rec {
-          username = "edu";
-          homeDirectory = "/home/edu";
-          system = "x86_64-linux";
-          configuration = ./home-manager/edu.nix;
+        "edu@alderaan" = homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [ ./home-manager/edu.nix ];
           extraSpecialArgs = { inherit inputs; overlays = overlays; };
         };
 
-        "ere@alderaan-mac" = homeManagerConfiguration rec {
-          username = "ere";
-          homeDirectory = "/Users/ere";
-          system = "x86_64-darwin";
-          configuration = ./home-manager/ere.nix;
-          extraSpecialArgs = { inherit inputs; overlays = overlays; };
-        };
+        #"ere@alderaan-mac" = homeManagerConfiguration rec {
+        #  username = "ere";
+        #  homeDirectory = "/Users/ere";
+        #  system = "x86_64-darwin";
+        #  configuration = ./home-manager/ere.nix;
+        #  extraSpecialArgs = { inherit inputs; overlays = overlays; };
+        #};
       };
     };
 }

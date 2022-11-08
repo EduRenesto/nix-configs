@@ -20,9 +20,11 @@
     pavucontrol
     pamixer
     wineWowPackages.staging
+    winetricks
     yabridge
     yabridgectl
     ardour
+    calf
     spotify
     stack
     haskell-language-server
@@ -51,6 +53,9 @@
   home.sessionPath = [
     "$HOME/.local/bin"
   ];
+
+  home.username = "edu";
+  home.homeDirectory = "/home/edu";
 
   programs = {
     home-manager.enable = true;
@@ -136,14 +141,18 @@
     picom = {
       enable = true;
       experimentalBackends = true;
-      blur = true;
+      backend = "glx";
       fade = true;
       fadeDelta = 5;
       shadow = true;
       vSync = true;
-      extraOptions = ''
-        blur-method = "dual_kawase";
-      '';
+
+      settings = {
+        blur = {
+          enable = true;
+          method = "dual_kawase";
+        };
+      };
     };
 
     flameshot.enable = true;
@@ -197,4 +206,6 @@
   systemd.user.startServices = "sd-switch";
 
   fonts.fontconfig.enable = true;
+
+  home.stateVersion = "22.05";
 }
