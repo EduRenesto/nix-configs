@@ -8,10 +8,12 @@
 
   nixpkgs.overlays = overlays;
 
-  home.packages = with pkgs; [
+  home.packages = let
+    iosevka-curly-slab-bin = pkgs.iosevka-bin.override { variant = "curly-slab"; };
+  in with pkgs; [
     xorg.xmodmap
     light
-    iosevka-bin
+    iosevka-curly-slab-bin
     manrope
     xclip
     xcape
@@ -36,6 +38,10 @@
     inotify-tools
 
     docker-compose
+
+    #rustup
+    #rust-analyzer
+    #gcc
   ];
 
   home.sessionVariables = {
@@ -73,7 +79,7 @@
       enable = true;
       settings = {
         font = {
-          normal.family = "Iosevka";
+          normal.family = "Iosevka Term Curly Slab";
           size = 12;
         };
 
@@ -119,6 +125,11 @@
         gitconfig-mode = pkgs.emacsPackages.git-modes;
       };
     };
+
+    direnv = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
 
   services = {
@@ -141,6 +152,8 @@
       enable = true;
       #package = config.programs.doom-emacs.package;
     };
+
+    lorri.enable = true;
   };
 
   xsession.windowManager.xmonad = {

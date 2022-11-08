@@ -1,5 +1,5 @@
 Config {
-      font =        "xft:Iosevka:size=12:antialias=true"
+      font =        "xft:Iosevka Term Curly Slab:size=12:antialias=true"
     , position =    TopH 30
     , bgColor =     "#282a36"
     , fgColor =     "#6272a4"

@@ -25,7 +25,7 @@
 ;(setq doom-font "Iosevka Nerd Font Mono-13")
 ;(setq doom-variable-pitch-font "Barlow-13")
 
-(setq doom-font "Iosevka-13")
+(setq doom-font "Iosevka Term Curly Slab-13")
 (setq doom-variable-pitch-font "Manrope3-13")
 ;(setq doom-big-font (font-spec :family "Sans Serif" :size 20))
 

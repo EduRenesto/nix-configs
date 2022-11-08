@@ -42,11 +42,11 @@
       };
 
       darwinConfigurations = {
-      	"alderaan-mac" = darwinSystem {
-	  system = "x86_64-darwin";
-	  modules = [ ./nixos/alderaan-mac/configuration.nix ./nixos/common.nix ];
+        "alderaan-mac" = darwinSystem {
+          system = "x86_64-darwin";
+          modules = [ ./nixos/alderaan-mac/configuration.nix ./nixos/common.nix ];
           specialArgs = { inherit inputs; overlays = overlays; };
-	};
+        };
       };
 
       homeConfigurations = {

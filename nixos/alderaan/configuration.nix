@@ -113,6 +113,11 @@
     };
   };
 
+  hardware.sane = {
+    enable = true;
+    disabledDefaultBackends = [ "v4l" ];
+  };
+
   security.rtkit.enable = true;
   hardware.pulseaudio.enable = false;
 
