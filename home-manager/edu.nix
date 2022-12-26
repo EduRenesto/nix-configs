@@ -41,6 +41,8 @@
 
     docker-compose
 
+    gnupg
+
     #rustup
     #rust-analyzer
     #gcc

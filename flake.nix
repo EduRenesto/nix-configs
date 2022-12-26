@@ -39,6 +39,12 @@
           modules = [ ./nixos/alderaan/configuration.nix ./nixos/common.nix ];
           specialArgs = { inherit inputs; overlays = overlays; };
         };
+
+        tatooine = nixosSystem {
+          system = "x86_64-linux";
+          modules = [ ./nixos/tatooine/configuration.nix ./nixos/common.nix ];
+          specialArgs = { inherit inputs; overlays = overlays; };
+        };
       };
 
       #darwinConfigurations = {
@@ -51,6 +57,12 @@
 
       homeConfigurations = {
         "edu@alderaan" = homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          modules = [ ./home-manager/edu.nix ];
+          extraSpecialArgs = { inherit inputs; overlays = overlays; };
+        };
+
+        "edu@tatooine" = homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [ ./home-manager/edu.nix ];
           extraSpecialArgs = { inherit inputs; overlays = overlays; };
