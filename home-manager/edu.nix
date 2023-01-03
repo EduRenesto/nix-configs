@@ -46,6 +46,8 @@
     #rustup
     #rust-analyzer
     #gcc
+
+    hledger
   ];
 
   home.sessionVariables = {
