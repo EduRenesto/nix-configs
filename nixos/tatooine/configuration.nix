@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ inputs, config, pkgs, lib, ... }:
+{ inputs, config, pkgs, lib, nixpkgs, ... }:
 
 {
   imports =
@@ -14,8 +14,17 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-    registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
+    # registry = lib.mapAttrs' (n: v: lib.nameValuePair n { flake = v; }) inputs;
+    registry.nixpkgs.flake = nixpkgs;
+
+    nixPath = [
+      "nixpkgs=/etc/channels/nixpkgs"
+      "nixos-config=/etc/nixos/configuration.nix"
+      "/nix/var/nix/profiles/per-user/root/channels"
+    ];
   };
+
+  environment.etc."channels/nixpkgs".source = inputs.nixpkgs.outPath;
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "spotify"

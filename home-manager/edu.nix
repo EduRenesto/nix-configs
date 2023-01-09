@@ -26,8 +26,8 @@
     ardour
     calf
     spotify
-    stack
-    haskell-language-server
+    #stack
+    #haskell-language-server
     feh
     python310
     python310Packages.ipython
@@ -144,7 +144,6 @@
   services = {
     picom = {
       enable = true;
-      experimentalBackends = true;
       backend = "glx";
       fade = true;
       fadeDelta = 5;

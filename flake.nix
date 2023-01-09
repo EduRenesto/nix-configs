@@ -20,6 +20,7 @@
     };
 
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    neovim-nightly-overlay.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = { nixpkgs, darwin, home-manager, nix-doom-emacs, ... }@inputs:
@@ -43,7 +44,7 @@
         tatooine = nixosSystem {
           system = "x86_64-linux";
           modules = [ ./nixos/tatooine/configuration.nix ./nixos/common.nix ];
-          specialArgs = { inherit inputs; overlays = overlays; };
+          specialArgs = { inherit inputs; nixpkgs = nixpkgs; overlays = overlays; };
         };
       };
 
