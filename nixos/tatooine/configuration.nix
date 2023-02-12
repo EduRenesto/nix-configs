@@ -57,9 +57,14 @@
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    windowManager.xmonad.enable = true;
-    windowManager.openbox.enable = true;
+    #windowManager.xmonad.enable = true;
+    #windowManager.openbox.enable = true;
+    desktopManager.gnome = {
+      enable = true;
+    };
+    displayManager.gdm.enable = true;
     layout = "dvorak";
+    videoDrivers = [ "amdgpu" ];
   };
 
   services = {

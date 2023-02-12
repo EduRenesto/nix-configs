@@ -15,6 +15,7 @@
     light
     iosevka-curly-slab-bin
     manrope
+    inter
     xclip
     xcape
     pavucontrol
@@ -43,15 +44,32 @@
 
     gnupg
 
-    #rustup
-    #rust-analyzer
+    rustup
+    rust-analyzer
     #gcc
 
     hledger
+
+    whitesur-gtk-theme
+    nordzy-icon-theme
+    gnomeExtensions.user-themes
+    gnomeExtensions.blur-my-shell
+
+    helm
+    dexed
+    freetype
+    alsa-lib
+    libstdcxx5
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
+
+    DSSI_PATH   = "$HOME/.dssi:$HOME/.nix-profile/lib/dssi:/run/current-system/sw/lib/dssi";
+    LADSPA_PATH = "$HOME/.ladspa:$HOME/.nix-profile/lib/ladspa:/run/current-system/sw/lib/ladspa";
+    LV2_PATH    = "$HOME/.lv2:$HOME/.nix-profile/lib/lv2:/run/current-system/sw/lib/lv2";
+    LXVST_PATH  = "$HOME/.lxvst:$HOME/.nix-profile/lib/lxvst:/run/current-system/sw/lib/lxvst";
+    VST_PATH    = "$HOME/.vst:$HOME/.nix-profile/lib/vst:/run/current-system/sw/lib/vst";
   };
 
   home.sessionPath = [
@@ -84,6 +102,11 @@
       enableZshIntegration = true;
     };
 
+    tmux = {
+      enable = true;
+      keyMode = "vi";
+    };
+
     alacritty = {
       enable = true;
       settings = {
@@ -104,6 +127,8 @@
 
           opacity = 0.8;
         };
+
+        shell.program = "${pkgs.tmux}/bin/tmux";
       };
     };
 
@@ -143,7 +168,7 @@
 
   services = {
     picom = {
-      enable = true;
+      enable = false;
       backend = "glx";
       fade = true;
       fadeDelta = 5;
@@ -168,11 +193,11 @@
     lorri.enable = true;
   };
 
-  xsession.windowManager.xmonad = {
-    enable = true;
-    enableContribAndExtras = true;
-    config = ../dots/xmonad/xmonad.hs;
-  };
+  #xsession.windowManager.xmonad = {
+  #  enable = true;
+  #  enableContribAndExtras = true;
+  #  config = ../dots/xmonad/xmonad.hs;
+  #};
 
   # TODO(edu): I need to find a cool way to store my wallpapers.
   # Maybe I should create a Nix package containing them, and then

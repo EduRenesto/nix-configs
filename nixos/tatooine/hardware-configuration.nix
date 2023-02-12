@@ -9,7 +9,11 @@
     ];
 
   boot.initrd.availableKernelModules = [ "ahci" "ohci_pci" "ehci_pci" "xhci_pci" "usb_storage" "usbhid" "sd_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" "dm-cache-default" ];
+  boot.initrd.kernelModules = [
+    "dm-snapshot"
+    "dm-cache-default"
+    "amdgpu"
+  ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
   boot.kernelParams = [ "iommu=pt" "amd_iommu=on" ];
