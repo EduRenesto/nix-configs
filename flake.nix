@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    darwin.url = "github:lnl7/nix-darwin/master";
+    darwin.url = "github:LnL7/nix-darwin";
     darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
@@ -56,6 +56,16 @@
       #  };
       #};
 
+      darwinConfigurations = {
+        "dragonstone" = darwinSystem {
+          system = "aarch64-darwin";
+          modules = [ 
+            ./nixos/dragonstone/configuration.nix
+          ];
+          specialArgs = { inherit inputs; overlays = overlays; };
+        };
+      };
+
       homeConfigurations = {
         "edu@alderaan" = homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
@@ -67,6 +77,11 @@
           pkgs = nixpkgs.legacyPackages.x86_64-linux;
           modules = [ ./home-manager/edu.nix ];
           extraSpecialArgs = { inherit inputs; overlays = overlays; };
+        };
+
+        "edu@dragonstone" = homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          modules = [ ./home-manager/edu-dragonstone.nix ];
         };
 
         #"ere@alderaan-mac" = homeManagerConfiguration rec {
