@@ -43,12 +43,10 @@
       enable = true;
       settings = {
         font = {
-          size = 13;
+          size = 14;
         };
 
-        colors = with import ../colors/alacritty.nix {}; {
-          inherit nord;
-        };
+        colors = let my-colors = import ../colors/alacritty.nix {}; in my-colors.nord;
 
         window = {
           padding = {
