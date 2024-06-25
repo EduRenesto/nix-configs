@@ -5,6 +5,15 @@
   nix.extraOptions = "experimental-features = nix-command flakes";
 
   programs.zsh.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    emacsMacport
+  ];
+
+  services.emacs = {
+    enable = true;
+    package = pkgs.emacsMacport;
+  };
   
   system.keyboard = {
     enableKeyMapping = true;

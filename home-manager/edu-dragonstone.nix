@@ -3,6 +3,10 @@
   home.homeDirectory = "/Users/edu";
   home.stateVersion = "24.05";
 
+  home.packages = with pkgs; [
+    neovim
+  ];
+
   programs = {
     home-manager.enable = true;
 
@@ -72,5 +76,18 @@
       enable = true;
       enableZshIntegration = true;
     };
+
+    bat.enable = true;
+    ripgrep.enable = true;
+  };
+
+  xdg.configFile."nvim" = {
+    recursive = true;
+    source = ../dots/neovim;
+  };
+
+  xdg.configFile."doom" = {
+    recursive = true;
+    source = ../dots/doom;
   };
 }

@@ -25,14 +25,15 @@
 ;(setq doom-font "Iosevka Nerd Font Mono-13")
 ;(setq doom-variable-pitch-font "Barlow-13")
 
-(setq doom-font "Iosevka Term Curly Slab-13")
-(setq doom-variable-pitch-font "Manrope3-13")
-;(setq doom-big-font (font-spec :family "Sans Serif" :size 20))
+(if (not (string= (system-name) "dragonstone"))
+  (progn
+    (setq doom-font "Iosevka Term Curly Slab-13")
+    (setq doom-variable-pitch-font "Manrope3-13")))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-solarized-light)
+(setq doom-theme 'doom-nord)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -112,14 +113,5 @@
 (map! :n "SPC i j" #'edu/insert-markdown-jira-link)
 
 (add-hook 'typescript-mode-hook 'editorconfig-mode)
-
-;(set-face-attribute 'mode-line nil :family "Alte Haas Grotesk" :height 120)
-;(set-face-attribute 'mode-line-inactive nil :family "Alte Haas Grotesk" :height 120)
-
-;(setq-default line-spacing 0.3)
-
-;(setq doom-modeline-height 1)
-;(set-face-attribute 'mode-line nil :family "SF Pro Display" :height 160)
-;(set-face-attribute 'mode-line-inactive nil :family "SF Pro Display" :height 160)
 
 (setq projectile-indexing-method 'hybrid)

@@ -4,8 +4,6 @@
              packer packer
              lualine lualine
              lsp lspconfig
-             coq coq
-             nix nixsupport
              }})
 
 (defn- safe-require-plugin-config [name]
@@ -38,8 +36,6 @@
   :nvim-telescope/telescope.nvim {}
 
   :neovim/nvim-lspconfig {}
-  :ms-jpq/coq_nvim {:branch :coq}
-  :ms-jpq/coq.thirdparty {:branch :3p}
   )
 
 (lualine.setup {:options {
@@ -51,10 +47,3 @@
 (local pid (tostring vim.fn.getpid))
 
 (lsp.hls.setup (coq.lsp_ensure_capabilities {}))
-(lsp.omnisharp.setup (coq.lsp_ensure_capabilities {:cmd [
-                                                         nix.omnisharp_path
-                                                         "--languageserver"
-                                                         "--hostPID"
-                                                         pid
-                                                         ]
-                                                   }))
