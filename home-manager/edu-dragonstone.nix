@@ -47,7 +47,7 @@
       enable = true;
       settings = {
         font = {
-          size = 14;
+          size = 15;
         };
 
         colors = let my-colors = import ../colors/alacritty.nix {}; in my-colors.nord;
@@ -75,6 +75,14 @@
     direnv = {
       enable = true;
       enableZshIntegration = true;
+    };
+
+    emacs = {
+      enable = true;
+      package = pkgs.emacsMacport;
+      extraConfig = ''
+        (add-to-list 'load-path "/Users/edu/.config/emacs/lisp")
+      '';
     };
 
     bat.enable = true;

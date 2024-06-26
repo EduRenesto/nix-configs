@@ -28,7 +28,10 @@
 (if (not (string= (system-name) "dragonstone"))
   (progn
     (setq doom-font "Iosevka Term Curly Slab-13")
-    (setq doom-variable-pitch-font "Manrope3-13")))
+    (setq doom-variable-pitch-font "Manrope3-13"))
+  (progn
+    (setq doom-font "Monaco-15")
+    (setq doom-variable-pitch-font "Helvetica Neue-15")))
 
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the

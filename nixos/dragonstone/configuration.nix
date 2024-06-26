@@ -7,13 +7,8 @@
   programs.zsh.enable = true;
 
   environment.systemPackages = with pkgs; [
-    emacsMacport
+    gnupg
   ];
-
-  services.emacs = {
-    enable = true;
-    package = pkgs.emacsMacport;
-  };
   
   system.keyboard = {
     enableKeyMapping = true;
@@ -30,6 +25,8 @@
       "firefox"
       "spotify"
       "alacritty"
+      "reaper"
+      "darktable"
     ];
   };
 }
